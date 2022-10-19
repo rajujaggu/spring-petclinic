@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'MAVEN'}
+    agent {label 'MAVEN-BUILD'}
     parameters{ 
         choice(name: 'branch-name', choices: ['main', 'gh-pages'], description: 'branch demo')
         string(name: 'maven-build', defaultValue: 'package', description: 'maven build')
