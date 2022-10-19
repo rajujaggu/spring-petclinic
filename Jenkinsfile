@@ -9,7 +9,7 @@ pipeline{
         {
             steps{
               git url:'https://github.com/rajujaggu/spring-petclinic.git',
-              git branch:"${params.branch-name}"
+              git branch: ${params.branch-name}
             }
         }
         stage('build'){
