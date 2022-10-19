@@ -2,6 +2,7 @@ pipeline{
     agent {label 'MAVEN-BUILD'}
      parameters {
         choice(name: 'branch', choices: ['main', 'wavefront'], description: 'branch name')
+        string(name: 'maven_build', defaultValue: 'package', description: 'maven build')
      }
    
     stages {
@@ -12,7 +13,11 @@ pipeline{
                   branch: "${params.branch}"
             }
         }
-          
+        stage ('build'){
+            steps{
+                sh "mvn ${params.maven_branch}"
+            }
+        }
 }
 
 }
