@@ -1,7 +1,7 @@
 pipeline{
     agent {label 'MAVEN-BUILD'}
     parameters{ 
-        choice(name: 'branch-name', choices: ['main', 'gh-pages'], description: 'branch demo')
+        string(name: 'branch-name', defaultValue: 'main', description: 'branch name is main')
         string(name: 'maven-build', defaultValue: 'package', description: 'maven build')
         }
     stages {
@@ -9,7 +9,7 @@ pipeline{
         {
             steps{
               git url:'https://github.com/rajujaggu/spring-petclinic.git',
-              git branch: ${params.branch-name}
+              git branch: "${params.branch-name}"
             }
         }
         stage('build'){
