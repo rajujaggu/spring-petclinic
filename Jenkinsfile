@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'MAVEN-BUILD'}
+    agent any
      parameters {
         choice(name: 'branch', choices: ['main', 'wavefront','emailtesting'], description: 'branch name')
         string(name: 'maven_build', defaultValue: 'package', description: 'maven build')
@@ -38,4 +38,5 @@ pipeline{
         }
 }
 
+}
 }
