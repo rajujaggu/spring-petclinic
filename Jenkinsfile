@@ -21,6 +21,7 @@ pipeline{
                 sh "mvn ${params.maven_branch}"
             }
         }
+    }
          post {
         always {
             echo 'Job completed'
@@ -36,7 +37,5 @@ pipeline{
         success {
             junit '**/surefire-reports/*.xml'
         }
-}
-
 }
 }
