@@ -18,7 +18,7 @@ pipeline{
         }
         stage ('build'){
             steps{
-                sh "mvn ${params.maven_branch}"
+                sh "mvn ${params.maven_build}"
             }
         }
     }
