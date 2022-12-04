@@ -1,5 +1,5 @@
 pipeline{
-    agent {}
+    agent {label 'DOCKER'}
      parameters {
         choice(name: 'branch', choices: ['main', 'dockerpractice1','emailtesting'], description: 'branch name')
         string(name: 'maven_build', defaultValue: 'package', description: 'maven build')
