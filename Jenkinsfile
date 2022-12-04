@@ -19,6 +19,7 @@ pipeline{
         stage ('build'){
             steps{
                 sh "mvn ${params.maven_build}"
+                sh "docker image build  -t firstdckr"
             }
         }
     }
