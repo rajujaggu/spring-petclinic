@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'Docker'}
+    agent {label 'NODEJS'}
      parameters {
         choice(name: 'branch', choices: ['main', 'dockerpractice1','emailtesting'], description: 'branch name')
      }
