@@ -2,7 +2,6 @@ pipeline{
     agent {label 'Docker'}
      parameters {
         choice(name: 'branch', choices: ['main', 'dockerpractice1','emailtesting'], description: 'branch name')
-        string(name: 'maven_build', defaultValue: 'package', description: 'maven build')
      }
    
     stages {
@@ -18,8 +17,7 @@ pipeline{
         }
         stage ('build'){
             steps{
-                sh "mvn ${params.maven_build}"
-                sh "docker image build  -t firstdckr:1.0 ."
+            sh "docker image build  -t firstdckr:1.0 ."
             }
         }
     }
