@@ -17,7 +17,7 @@ pipeline{
         }
         stage ('build'){
             steps{
-            sh "docker image build  -t firstdckr:1.0 ."
+            sh "docker image build  -t spcimage:1.0 ."
             }
         }
     }
