@@ -18,6 +18,8 @@ pipeline{
         stage ('build'){
             steps{
             sh "docker image build  -t spcimage:1.0 ."
+            sh "docker image tag spcimage:1.0 rajreddy999/spc1:1.0"
+            sh "docker image push"
             }
         }
     }
