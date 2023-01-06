@@ -19,8 +19,8 @@ pipeline{
             steps {
                 rtServer (
                     id: "jfrog_cicd",
-                    url: https://rajreddy.jfrog.io,
-                    credentialsId: jfrog_cicd_admin
+                    url: 'https://rajreddy.jfrog.io',
+                    credentialsId: "jfrog_cicd_admin"
                 )
             }
         }
