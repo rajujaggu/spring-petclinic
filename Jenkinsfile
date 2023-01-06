@@ -27,7 +27,7 @@ pipeline{
         stage ('build'){
             steps{
             sh "docker image build  -t spcimage:1.0 ."
-            sh "docker image tag spcimage:1.0 docker tag <IMAGE_ID> rajreddy.jfrog.io/docker-local/spc1:1.0"
+            sh "docker image tag spcimage:1.0 rajreddy.jfrog.io/docker-local/spc1:1.0"
             }
         }
         stage ('Push image to Artifactory') {
