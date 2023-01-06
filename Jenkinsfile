@@ -38,11 +38,10 @@ pipeline{
                     // Host:
                     // On OSX: "tcp://127.0.0.1:1234"
                     // On Linux can be omitted or null
-                    targetRepo: 'docker-remote',
-                    // Attach custom properties to the published artifacts:
-                    properties: 'project-name=docker1;status=stable')
+                    targetRepo: 'docker-remote')
     }
         }
+    }
          post {
         always {
             echo 'Job completed'
@@ -55,6 +54,5 @@ pipeline{
                   body: "Build Failed for Jenkins JOB $env.JOB_NAME", 
                   to: 'nagulapally.raj@gmail.com' 
         }
-}
 }
 }
