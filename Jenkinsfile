@@ -42,17 +42,5 @@ pipeline{
     }
         }
     }
-         post {
-        always {
-            echo 'Job completed'
-            mail subject: "Build Completed for Jenkins JOB $env.JOB_NAME", 
-                  body: "Build Completed for Jenkins JOB $env.JOB_NAME \n Click Here: $env.JOB_URL", 
-                  to: 'nagulapally.raj@gmail.com'
-        }
-        failure {
-            mail subject: "Build Failed for Jenkins JOB $env.JOB_NAME with Build ID $env.BUILD_ID", 
-                  body: "Build Failed for Jenkins JOB $env.JOB_NAME", 
-                  to: 'nagulapally.raj@gmail.com' 
-        }
-}
+         
 }
