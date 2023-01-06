@@ -27,14 +27,14 @@ pipeline{
         stage ('build'){
             steps{
             sh "docker image build  -t spcimage:1.0 ."
-            sh "docker image tag spcimage:1.0 rajreddy.jfrog.io/docker-remote/spc1:1.0"
+            sh "docker image tag spcimage:1.0 docker tag <IMAGE_ID> rajreddy.jfrog.io/docker-local/spc1:1.0"
             }
         }
         stage ('Push image to Artifactory') {
             steps {
                 rtDockerPush(
                     serverId: "jfrog_cicd",
-                    image: 'rajreddy.jfrog.io/docker-remote/spc1:1.0',
+                    image: 'rajreddy.jfrog.io/docker-local/spc1:1.0',
                     // Host:
                     // On OSX: "tcp://127.0.0.1:1234"
                     // On Linux can be omitted or null
