@@ -35,9 +35,6 @@ pipeline{
                 rtDockerPush(
                     serverId: "jfrog_cicd",
                     image: 'rajreddy.jfrog.io/docker-local/spc1:1.0',
-                    // Host:
-                    // On OSX: "tcp://127.0.0.1:1234"
-                    // On Linux can be omitted or null
                     targetRepo: 'docker-remote')
     }
         }
