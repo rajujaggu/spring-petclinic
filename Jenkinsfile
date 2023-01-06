@@ -42,6 +42,7 @@ pipeline{
                     // Attach custom properties to the published artifacts:
                     properties: 'project-name=docker1;status=stable')
     }
+        }
          post {
         always {
             echo 'Job completed'
