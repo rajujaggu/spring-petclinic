@@ -17,7 +17,7 @@ pipeline{
         }
         stage('Package build & Sonar'){
             steps{
-                withSonarQubeEnv('SONAR') {
+                withSonarQubeEnv('SONAR_D') {
                 sh "mvn package sonar:sonar"
               }
             }
