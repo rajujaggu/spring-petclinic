@@ -1,7 +1,7 @@
 pipeline{
     agent {label 'NODEJS'}
-     parameters {
-        choice(name: 'branch', choices: ['main', 'dockerpractice1','emailtesting'], description: 'branch name')
+     triggers { 
+        pollSCM('* * * * *') 
      }
    
     stages {
@@ -12,7 +12,7 @@ pipeline{
                      body   : "build started for Jenkins JOB $env.JOB_NAME",
                      to     : 'nagulapally.raj@gmail.com'
               git url: 'https://github.com/rajujaggu/spring-petclinic.git',
-                  branch: "${params.branch}"
+                  branch: 'dockerpractice1'
             }
         }
         stage('Package build & Sonar'){
