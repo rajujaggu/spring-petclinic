@@ -41,8 +41,8 @@ pipeline{
         
         stage ('build image'){
             steps{
-            sh "docker image build  -t spcimage:1.0 ."
-            sh "docker image tag spcimage:1.0 rajreddy.jfrog.io/docker-local/spc1:1.0"
+            sh "docker image build  -t spcimage:2.0 ."
+            sh "docker image tag spcimage:1.0 rajreddy.jfrog.io/docker-local/spc2:1.0"
             }
         }
         stage ('Push image to Artifactory') {
@@ -50,7 +50,7 @@ pipeline{
                 rtDockerPush(
                     serverId: "jfrog_cicd",
                     image: 'rajreddy.jfrog.io/docker-local/spc2:1.0',
-                    targetRepo: 'docker-remote')
+                    targetRepo: 'docker-local')
     }
         }
     }
