@@ -15,6 +15,20 @@ pipeline{
                   branch: "${params.branch}"
             }
         }
+        stage('Package build & Sonar'){
+            steps{
+                withSonarQubeEnv('SONAR') {
+                sh "mvn package sonar:sonar"
+              }
+            }
+        }
+        // stage("Quality Gate") {
+        //     steps {
+        //       timeout(time: 30, unit: 'MINUTES') {
+        //         waitForQualityGate abortPipeline: true
+        //       }
+        //     }
+        // }
         stage ('Artifactory configuration') {
             steps {
                 rtServer (
@@ -24,7 +38,8 @@ pipeline{
                 )
             }
         }
-        stage ('build'){
+        
+        stage ('build image'){
             steps{
             sh "docker image build  -t spcimage:1.0 ."
             sh "docker image tag spcimage:1.0 rajreddy.jfrog.io/docker-local/spc1:1.0"
