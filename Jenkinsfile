@@ -49,7 +49,7 @@ pipeline{
             steps {
                 rtDockerPush(
                     serverId: "jfrog_cicd",
-                    image: 'rajreddy.jfrog.io/docker-local/spc1:1.0',
+                    image: 'rajreddy.jfrog.io/docker-local/spc2:1.0',
                     targetRepo: 'docker-remote')
     }
         }
