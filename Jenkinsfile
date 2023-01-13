@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'NODEJS'}
+    agent {label 'SONAR'}
      triggers { 
         pollSCM('* * * * *') 
      }
