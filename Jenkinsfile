@@ -43,6 +43,7 @@ pipeline{
             steps{
             sh "docker image build  -t spcimage:2.0 ."
             sh "docker image tag spcimage:1.0 rajreddy.jfrog.io/docker-local/spc2:1.0"
+            sh "docker image delete rajreddy.jfrog.io/docker-local/spc2:1.0"
             }
         }
         stage ('Push image to Artifactory') {
